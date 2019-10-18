@@ -1,0 +1,97 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: 700;
+}
+h2 {
+  font-size: 24px;
+  font-weight: 700;
+}
+h3 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+header {
+  margin: 20px;
+}
+
+.pokeball {
+  float: left;
+  height: 30px;
+  margin: 10px;
+}
+/* Grid fallback*/
+
+.grid__item {
+  display: inline-block;
+  width: 33%;
+}
+
+/* Styling CSS grid*/
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+  padding: 20px;
+}
+
+.grid__item {
+  width: auto;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 4px 3px 19px 0px rgba(0, 0, 0, 0.3);
+  background-color: lightblue;
+  color: #fff;
+}
+
+.grid_item_darken {
+  width: auto;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 4px 3px 19px 0px rgba(0, 0, 0, 0.3);
+  background-color: rgb(82, 158, 184);
+  color: #fff;
+}
+
+.grid__item:hover,
+.grid_item_darken:hover {
+  box-shadow: none;
+}
+
+@media all and (max-width: 500px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media all and (min-width: 500px) and (max-width: 750px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media all and (max-width: 750px) {
+  .grid {
+    grid-gap: 10px;
+  }
+  .grid__item:last-child {
+    grid-column: auto / auto;
+    grid-row: auto / auto;
+  }
+  h1 {
+    font-size: 22px;
+  }
+  .pokeball {
+    height: 22px;
+  }
+}

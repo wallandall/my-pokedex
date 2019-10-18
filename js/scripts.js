@@ -27,7 +27,54 @@ repository = [
   },
   {
     name: "Charizard",
-    height: 1.7,
+    height: 7,
     types: ["fire", "flying"],
   },
 ];
+
+for (var i = 0; i < repository.length; i++) {
+  var pokemon = document.createElement("div");
+
+  var pokemonTitle = document.createElement("h1");
+  if (repository[i].height > 7) {
+    pokemonTitle.textContent =
+      repository[i].name +
+      " (height: " +
+      repository[i].height +
+      ") " +
+      "- Wow, that's big! ')";
+    pokemon.setAttribute("class", "grid_item_darken");
+  } else {
+    pokemonTitle.textContent =
+      repository[i].name + " (height: " + repository[i].height + ")";
+    pokemon.setAttribute("class", "grid__item");
+  }
+
+  document.getElementById("pokemon-container").appendChild(pokemon);
+  pokemon.appendChild(pokemonTitle);
+  /*
+  document.write('<div class="grid">');
+  if (repository[i].height >= 7) {
+    document.write(
+      '<div class="grid__item">' +
+        repository[i].name +
+        "(height:" +
+        repository[i].height +
+        ")" +
+        " - Wow, that's big! " +
+        "</div",
+    );
+  } else {
+    document.write(
+      '<div class="grid__item">' +
+        repository[i].name +
+        "(height:" +
+        repository[i].height +
+        ")" +
+        "</div",
+    );
+  }
+
+  document.write("</div></div>");
+  */
+}
