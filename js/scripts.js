@@ -1,4 +1,4 @@
-repository = [];
+var repository = [];
 repository = [
   {
     name: "Bulbasaur",
@@ -36,7 +36,7 @@ for (var i = 0; i < repository.length; i++) {
   var pokemon = document.createElement("div");
 
   var pokemonTitle = document.createElement("h1");
-  if (repository[i].height > 7) {
+  if (repository[i].height > 6) {
     pokemonTitle.textContent =
       repository[i].name +
       " (height: " +
@@ -52,29 +52,4 @@ for (var i = 0; i < repository.length; i++) {
 
   document.getElementById("pokemon-container").appendChild(pokemon);
   pokemon.appendChild(pokemonTitle);
-  /*
-  document.write('<div class="grid">');
-  if (repository[i].height >= 7) {
-    document.write(
-      '<div class="grid__item">' +
-        repository[i].name +
-        "(height:" +
-        repository[i].height +
-        ")" +
-        " - Wow, that's big! " +
-        "</div",
-    );
-  } else {
-    document.write(
-      '<div class="grid__item">' +
-        repository[i].name +
-        "(height:" +
-        repository[i].height +
-        ")" +
-        "</div",
-    );
-  }
-
-  document.write("</div></div>");
-  */
 }
