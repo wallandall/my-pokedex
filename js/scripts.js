@@ -36,8 +36,6 @@ var pokemonRepository = (function() {
 
   function add(pokemon) {
     if (typeof pokemon === "object") {
-      console.log(Object.keys(pokemon));
-      console.log(Object.keys(repository));
       repository.push(pokemon);
     }
   }
