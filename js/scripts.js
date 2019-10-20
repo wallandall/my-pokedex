@@ -32,24 +32,24 @@ repository = [
   },
 ];
 
-for (var i = 0; i < repository.length; i++) {
+repository.forEach(function(currentPokemon) {
   var pokemon = document.createElement("div");
 
   var pokemonTitle = document.createElement("h1");
-  if (repository[i].height > 6) {
+  if (currentPokemon.height > 6) {
     pokemonTitle.textContent =
-      repository[i].name +
+      currentPokemon.name +
       " (height: " +
-      repository[i].height +
+      currentPokemon.height +
       ") " +
       "- Wow, that's big! ')";
     pokemon.setAttribute("class", "grid_item_darken");
   } else {
     pokemonTitle.textContent =
-      repository[i].name + " (height: " + repository[i].height + ")";
+      currentPokemon.name + " (height: " + currentPokemon.height + ")";
     pokemon.setAttribute("class", "grid__item");
   }
 
   document.getElementById("pokemon-container").appendChild(pokemon);
   pokemon.appendChild(pokemonTitle);
-}
+});
