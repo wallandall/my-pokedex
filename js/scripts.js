@@ -1,7 +1,5 @@
 var pokemonRepository = (function() {
-  var repository = [];
-
-  repository = [
+  var repository = [
     {
       name: "Bulbasaur",
       height: 0.7,
@@ -37,6 +35,8 @@ var pokemonRepository = (function() {
   function add(pokemon) {
     if (typeof pokemon === "object") {
       repository.push(pokemon);
+    } else {
+      return "Invaid Entry";
     }
   }
 
