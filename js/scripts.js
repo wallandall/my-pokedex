@@ -33,7 +33,10 @@ var pokemonRepository = (function() {
   ];
 
   function add(pokemon) {
-    if (typeof pokemon === "object") {
+    if (
+      Object.prototype.toString.call(pokemon) === "[object Object]" &&
+      Object.keys(pokemon).length === 3
+    ) {
       repository.push(pokemon);
     } else {
       return "Invaid Entry";
