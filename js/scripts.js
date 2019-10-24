@@ -33,10 +33,7 @@ var pokemonRepository = (function() {
   ];
 
   function add(pokemon) {
-    if (
-      Object.prototype.toString.call(pokemon) === "[object Object]" &&
-      Object.keys(pokemon).length === 3
-    ) {
+    if (typeof pokemon === "object") {
       repository.push(pokemon);
     } else {
       return "Invaid Entry";
@@ -47,9 +44,30 @@ var pokemonRepository = (function() {
     return repository;
   }
 
+  //Render Pokemons to screen
+  function addListItem(pokemon) {
+    var $listItem = document.createElement("li");
+    var $pokemonButton = document.createElement("button");
+    $pokemonList.appendChild($listItem);
+    $pokemonButton.innerText = pokemon.name;
+    $pokemonButton.classList.add("pokemon-button");
+    $listItem.appendChild($pokemonButton);
+
+    //Add Event Listner for button click
+    $pokemonButton.addEventListener("click", function() {
+      showDetails(pokemon);
+    });
+  }
+
+  function showDetails(pokemon) {
+    console.log(pokemon);
+  }
+
   return {
     add: add,
     getAll: getAll,
+    addListItem: addListItem,
+    showDetails: showDetails,
   };
 })();
 
@@ -59,24 +77,8 @@ pokemonRepository.add({
   types: ["electric"],
 });
 
+var $pokemonList = document.querySelector(".pokemon-list");
+
 pokemonRepository.getAll().forEach(function(currentPokemon) {
-  var pokemon = document.createElement("div");
-
-  var pokemonTitle = document.createElement("h1");
-  if (currentPokemon.height > 6) {
-    pokemonTitle.textContent =
-      currentPokemon.name +
-      " (height: " +
-      currentPokemon.height +
-      ") " +
-      "- Wow, that's big! ')";
-    pokemon.setAttribute("class", "grid_item_darken");
-  } else {
-    pokemonTitle.textContent =
-      currentPokemon.name + " (height: " + currentPokemon.height + ")";
-    pokemon.setAttribute("class", "grid__item");
-  }
-
-  document.getElementById("pokemon-container").appendChild(pokemon);
-  pokemon.appendChild(pokemonTitle);
+  pokemonRepository.addListItem(currentPokemon);
 });

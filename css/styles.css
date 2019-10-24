@@ -26,6 +26,35 @@ header {
   margin: 20px;
 }
 
+button {
+  /* overwrites browser defaults */
+  /* resets the border */
+  border: none;
+  display: inline-block;
+  /* takes the font from the outer container */
+  font-family: inherit;
+  /* style button */
+  background-color: lightseagreen;
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 3px;
+  /* width of the border, type, color */
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+  transition: 0.2s opacity;
+}
+
+button:hover,
+button:focus {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.button__secondary {
+  background-color: lightblue;
+  color: white;
+}
+/* Pokemon Icon*/
 .pokeball {
   float: left;
   height: 30px;
@@ -33,22 +62,24 @@ header {
 }
 /* Grid fallback*/
 
-.grid__item {
+.pokemon-button {
   display: inline-block;
-  width: 33%;
+  width: 100%;
 }
 
 /* Styling CSS grid*/
 
-.grid {
+.pokemon-list {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
   grid-gap: 20px;
   padding: 20px;
+  text-decoration: none;
+  list-style-type: none;
 }
 
-.grid__item {
-  width: auto;
+.pokemon-button {
+  width: 100%;
   padding: 10px;
   border-radius: 5px;
   box-shadow: 4px 3px 19px 0px rgba(0, 0, 0, 0.3);
@@ -56,8 +87,8 @@ header {
   color: #fff;
 }
 
-.grid_item_darken {
-  width: auto;
+.pokemon-button_darken {
+  width: 100%;
   padding: 10px;
   border-radius: 5px;
   box-shadow: 4px 3px 19px 0px rgba(0, 0, 0, 0.3);
@@ -65,26 +96,26 @@ header {
   color: #fff;
 }
 
-.grid__item:hover,
-.grid_item_darken:hover {
+.pokemon-button:hover,
+.pokemon-button_darken:hover {
   box-shadow: none;
 }
 
 @media all and (max-width: 500px) {
-  .grid {
+  .pokemon-list {
     grid-template-columns: 1fr;
   }
 }
 @media all and (min-width: 500px) and (max-width: 750px) {
-  .grid {
+  .pokemon-list {
     grid-template-columns: 1fr 1fr;
   }
 }
 @media all and (max-width: 750px) {
-  .grid {
+  .pokemon-list {
     grid-gap: 10px;
   }
-  .grid__item:last-child {
+  .pokemon-list__item:last-child {
     grid-column: auto / auto;
     grid-row: auto / auto;
   }
