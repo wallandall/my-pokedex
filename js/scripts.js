@@ -91,7 +91,7 @@ var pokemonRepository = (function() {
 
   function isLoading(loading) {
     if (loading) {
-      $spinner.classList.remove("is-note-loading");
+      $spinner.classList.remove("is-not-loading");
       $spinner.classList.add("is-loading");
     } else {
       $spinner.classList.remove("is-loading");
