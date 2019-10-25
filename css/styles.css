@@ -101,6 +101,35 @@ button:focus {
   box-shadow: none;
 }
 
+/*Spinner for loading*/
+@keyframes is-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.is-loading {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  margin: -75px 0 0 -75px;
+  border: 16px solid #c0c0c0;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: is-loading 2s linear infinite; /* Safari */
+  animation: is-loading 2s linear infinite;
+}
+
+.is-not-loading {
+  visibility: hidden;
+}
+
 @media all and (max-width: 500px) {
   .pokemon-list {
     grid-template-columns: 1fr;
