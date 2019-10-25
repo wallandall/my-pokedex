@@ -26,7 +26,7 @@ var pokemonRepository = (function() {
 
   function loadDetails(item) {
     var url = item.detailsUrl;
-    isLoading(false);
+    isLoading(true);
     return fetch(url)
       .then(function(response) {
         return response.json();
@@ -36,6 +36,7 @@ var pokemonRepository = (function() {
         item.imageUrl = details.sprites.front_default;
         item.height = details.height;
         item.types = Object.keys(details.types);
+        isLoading(false);
       })
       .catch(function(e) {
         console.error(e);
@@ -90,9 +91,11 @@ var pokemonRepository = (function() {
 
   function isLoading(loading) {
     if (loading) {
-      $spinner.classList.toggle("is-loading");
+      $spinner.classList.remove("is-note-loading");
+      $spinner.classList.add("is-loading");
     } else {
-      $spinner.classList.toggle("is-not-loading");
+      $spinner.classList.remove("is-loading");
+      $spinner.classList.add("is-not-loading");
     }
   }
 
