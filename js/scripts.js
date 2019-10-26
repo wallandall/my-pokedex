@@ -1,6 +1,6 @@
-var pokemonRepository = (function() {
-  var repository = [];
-  var apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
+const pokemonRepository = (function() {
+  const repository = [];
+  const apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
 
   function loadList() {
     isLoading(true);
@@ -10,17 +10,13 @@ var pokemonRepository = (function() {
       })
       .then(function(json) {
         json.results.forEach(function(item) {
-          var pokemon = {
-            name: item.name,
-            detailsUrl: item.url,
-          };
-
-          add(pokemon);
+          add({ name: item.name, detailsUrl: item.url });
         });
         isLoading(false);
       })
       .catch(function(e) {
         console.error(e);
+        isLoading(false);
       });
   }
 
@@ -40,6 +36,7 @@ var pokemonRepository = (function() {
       })
       .catch(function(e) {
         console.error(e);
+        isLoading(false);
       });
   }
 
@@ -60,7 +57,7 @@ var pokemonRepository = (function() {
     if (isObject(pokemon, 2)) {
       repository.push(pokemon);
     } else {
-      return "Invaid Entry";
+      throw "Invaid Entry";
     }
   }
 
