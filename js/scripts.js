@@ -79,9 +79,6 @@ const pokemonRepository = (function() {
   var $modalContainer = document.querySelector("#modal-container");
   //Show Title, text and image in model
   function showModal(title, text, image) {
-    // Clear all existing modal content
-    $modalContainer.innerHTML = "";
-
     var modal = document.createElement("div");
     modal.classList.add("modal");
 
@@ -116,6 +113,8 @@ const pokemonRepository = (function() {
   //Hide Modal
   function hideModal() {
     $modalContainer.classList.remove("is-visible");
+    // Clear all existing modal content
+    $modalContainer.innerHTML = "";
   }
 
   function showDetails(item) {
@@ -167,6 +166,7 @@ const pokemonRepository = (function() {
 var $pokemonList = document.querySelector(".pokemon-list");
 var $spinner = document.querySelector("#spinner");
 
+//var $modalContainer = document.querySelector("#modal-container");
 pokemonRepository.loadList().then(function() {
   // Loop throu all items in list
   pokemonRepository.getAll().forEach(function(pokemon) {
