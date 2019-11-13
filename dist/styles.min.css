@@ -1,0 +1,83 @@
+body {
+  font-family: Lato, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+}
+h1 {
+  font-size: 30px;
+  font-weight: 700;
+}
+h2 {
+  font-size: 24px;
+  font-weight: 700;
+}
+h3 {
+  font-size: 18px;
+  font-weight: 700;
+}
+footer {
+  text-align: center;
+  height: 100px;
+  width: 100%;
+  border-top: 1px #000 solid;
+  padding: 25px;
+}
+.pokeball {
+  height: 30px;
+  margin-right: 10px;
+}
+#pokemon-list {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.pokemon-button {
+  width: 100%;
+}
+.pokemon-image {
+  height: 150px;
+  float: left;
+}
+#pokemon-height {
+  word-wrap: break-word;
+}
+.title {
+  text-transform: capitalize;
+}
+@-webkit-keyframes rotate-vert-center {
+  0% {
+    -webkit-transform: rotateY(0);
+    transform: rotateY(0);
+  }
+  100% {
+    -webkit-transform: rotateY(360deg);
+    transform: rotateY(360deg);
+  }
+}
+@keyframes rotate-vert-center {
+  0% {
+    -webkit-transform: rotateY(0);
+    transform: rotateY(0);
+  }
+  100% {
+    -webkit-transform: rotateY(360deg);
+    transform: rotateY(360deg);
+  }
+}
+.spinner-image {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100px;
+  z-index: 99;
+  -webkit-animation: rotate-vert-center 0.5s
+    cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+  animation: rotate-vert-center 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955)
+    infinite;
+}
+.is-loading {
+  visibility: visible;
+}
+.is-not-loading {
+  visibility: hidden;
+}
